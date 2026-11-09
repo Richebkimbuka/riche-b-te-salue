@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Riche’b te salue</title>
+  <meta name="description" content="Entre ton prénom et reçois un message de sagesse, de force et de foi.">
+  <meta property="og:title" content="Riche’b te salue">
+  <meta property="og:description" content="Entre ton prénom et reçois un message de sagesse, de force et de foi.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <h1 class="title">Riche’b te salue</h1>
+      <span class="rule" aria-hidden="true"></span>
+      <p class="lead">Entre ton prénom et reçois un message pour aujourd’hui.</p>
+    </header>
+
+    <form id="form" class="form" novalidate>
+      <label for="name" class="sr-only">Ton prénom</label>
+      <input id="name" name="name" type="text" placeholder="Ton prénom" maxlength="30"
+             autocomplete="given-name" autocapitalize="words" spellcheck="false"
+             aria-describedby="error" required>
+      <p id="error" class="error" role="alert" hidden></p>
+      <button id="reveal" type="submit" class="btn btn-gold">Découvrir mon message</button>
+    </form>
+
+    <section id="result" class="result" aria-live="polite" hidden>
+      <p id="greeting" class="greeting"></p>
+      <blockquote id="message" class="message"></blockquote>
+      <p id="signature" class="signature"></p>
+      <div class="actions">
+        <button id="another" type="button" class="btn btn-gold">Un autre message</button>
+        <button id="share" type="button" class="btn btn-ghost">Partager</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© {{ year }} Riche’b</footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</body>
+</html>
